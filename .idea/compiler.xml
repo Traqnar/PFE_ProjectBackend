@@ -6,13 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="kickerDaVinci" />
+        <module name="eureka_server" />
+        <module name="KickerDaVinci" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka_server" target="17" />
+      <module name="KickerDaVinci" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="kickerDaVinci" options="-parameters" />
+      <module name="KickerDaVinci" options="-parameters" />
+      <module name="eureka_server" options="-parameters" />
     </option>
   </component>
 </project>

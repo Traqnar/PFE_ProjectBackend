@@ -1,0 +1,22 @@
+### Create credentials
+POST http://localhost:9003/user
+Content-Type: application/json
+
+{
+  "password": "test",
+  "pseudo": "tgest",
+  "birthDate": "2007-12-03",
+  "firstname": "azertyy",
+  "lastname": "azerty",
+  "rankingPoints": 22,
+  "idClub": 2
+}
+
+### Connect user
+POST http://localhost:9003//authentication/connect
+Content-Type: application/json
+
+{
+  "pseudo": "tgest",
+  "password": "test"
+}

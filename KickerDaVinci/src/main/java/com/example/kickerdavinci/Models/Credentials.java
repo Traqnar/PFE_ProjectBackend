@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Credentials {
 
-  private String pseudo;
+  private String email;
   private String password;
 
 }

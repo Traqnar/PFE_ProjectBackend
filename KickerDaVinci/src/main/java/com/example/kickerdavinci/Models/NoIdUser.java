@@ -12,15 +12,14 @@ import lombok.ToString;
 @NoArgsConstructor
 public class NoIdUser {
 
-  private String pseudo;
+  private String email;
   private String password;
   private LocalDate birthDate;
   private String firstname;
   private String lastname;
-  private int rankingPoints;
   private int idClub;
 
   public User toUser() {
-    return new User(0L, pseudo,password, birthDate, firstname, lastname, rankingPoints, idClub);
+    return new User(0L, email, password, birthDate, firstname, lastname, 0, idClub);
   }
 }

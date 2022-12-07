@@ -35,7 +35,7 @@ public class UserService {
 
   public boolean createOne(NoIdUser user) {
 
-    if (usersRepository.existsByPseudo(user.getPseudo())) {
+    if (usersRepository.existsByEmail(user.getEmail())) {
       return false;
     }
     user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
@@ -45,14 +45,14 @@ public class UserService {
   }
 
   public String connect(Credentials credentials) {
-    User user = usersRepository.findByPseudo(credentials.getPseudo());
+    User user = usersRepository.findByEmail(credentials.getEmail());
     if (user == null) {
       return null;
     }
     if (!BCrypt.checkpw(credentials.getPassword(), user.getPassword())) {
       return null;
     }
-    return JWT.create().withIssuer("auth0").withClaim("pseudo", user.getPseudo())
+    return JWT.create().withIssuer("auth0").withClaim("pseudo", user.getEmail())
         .sign(this.jwtAlgorithm);
   }
 }

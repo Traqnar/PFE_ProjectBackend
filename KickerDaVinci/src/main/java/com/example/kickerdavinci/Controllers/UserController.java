@@ -23,10 +23,11 @@ public class UserController {
   @PostMapping("/user")
   ResponseEntity<Void> createUser(@RequestBody NoIdUser user) {
     if (user.getLastname() == null || user.getLastname().equals("") || user.getFirstname() == null
-        || user.getFirstname().equals("") || user.getPseudo() == null || user.getPseudo().equals("")
+        || user.getFirstname().equals("") || user.getEmail() == null || user.getEmail()
+        .equals("")
         || user.getPassword() == null || user.getPassword().equals("") || user.getBirthDate()
         .isAfter(
-            LocalDate.now()) || user.getRankingPoints() <= 0 || user.getIdClub() <= 0) {
+            LocalDate.now()) || user.getIdClub() <= 0) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
     if (!userService.createOne(user)) {
@@ -37,7 +38,10 @@ public class UserController {
 
   @PostMapping("/authentication/connect")
   public String connect(@RequestBody Credentials credentials) {
-    if (credentials.getPseudo() == null || credentials.getPassword() == null) {
+    if (credentials.getEmail() == null || credentials.getPassword() == null
+        || credentials.getPassword()
+        .equals("") || credentials.getEmail()
+        .equals("")) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
     String token = userService.connect(credentials);

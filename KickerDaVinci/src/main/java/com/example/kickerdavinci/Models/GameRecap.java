@@ -10,7 +10,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "GameRecaps")
+@Entity(name = "Game_Recaps")
 public class GameRecap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class GameRecap {
 
     @Column(name="host_score",nullable = false)
     private int hostScore;
-    @Column(name = "guest-score",nullable = false)
+    @Column(name = "guest_score",nullable = false)
     private int guestScore;
 
-    @OneToMany(mappedBy = "recap")
+    @OneToMany(mappedBy = "gameRecap")
     private List<Set> sets;
 
 }

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KickerDaVinci/KickerDaVinci.iml" filepath="$PROJECT_DIR$/KickerDaVinci/KickerDaVinci.iml" />
       <module fileurl="file://$PROJECT_DIR$/KickerDaVinci1.iml" filepath="$PROJECT_DIR$/KickerDaVinci1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />
     </modules>
   </component>
 </project>

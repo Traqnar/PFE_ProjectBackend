@@ -16,8 +16,8 @@ public class Set {
     @Column(name = "id")
     private long Id;
     @ManyToOne
-    @JoinColumn(name = "RECAP_ID", referencedColumnName = "ID")
-    private GameRecap recap;
+    @JoinColumn(name = "GAME_RECAP_ID", referencedColumnName = "ID")
+    private GameRecap gameRecap;
 
     @Column(name = "num",nullable = false)
     private int num;

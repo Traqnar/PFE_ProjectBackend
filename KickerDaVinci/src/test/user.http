@@ -1,0 +1,32 @@
+### Create credentials
+POST http://localhost:9003/user
+Content-Type: application/json
+
+{
+  "password": "hgsqddhgvhjed",
+  "email": "tgahjdjhdjhdjhdjhdest",
+  "birthDate": "2007-12-03",
+  "firstname": "azertyy",
+  "lastname": "azerty"
+}
+
+### Update user
+PUT http://localhost:9003/user/tgahjdjhdjhdjhdjhdest
+Content-Type: application/json
+
+{
+  "password": "hgsqdvhvdhgvnhjed",
+  "email": "tghjdhihvhvhhjhdjhdjhdjhdest",
+  "birthDate": "2009-12-03",
+  "firstname": "azehvvhrtyy",
+  "lastname": "azehvhrty"
+}
+
+### Connect user
+POST http://localhost:9003//authentication/connect
+Content-Type: application/json
+
+{
+  "email": "tghjdhihvhvhhjhdjhdjhdjhdest",
+  "password": "hgsqdvhvdhgvnhjed"
+}

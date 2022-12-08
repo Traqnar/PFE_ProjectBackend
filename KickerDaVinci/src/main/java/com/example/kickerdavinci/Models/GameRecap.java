@@ -12,21 +12,22 @@ import java.util.List;
 @AllArgsConstructor
 @Entity(name = "GameRecaps")
 public class GameRecap {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long Id;
 
-    @OneToOne
-    @JoinColumn(name="GAME_ID",unique = true, nullable = false)
-    private Game game;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private long Id;
 
-    @Column(name="host_score",nullable = false)
-    private int hostScore;
-    @Column(name = "guest-score",nullable = false)
-    private int guestScore;
+  @OneToOne
+  @JoinColumn(name = "GAME_ID", unique = true, nullable = false)
+  private Game game;
 
-    @OneToMany(mappedBy = "recap")
-    private List<Set> sets;
+  @Column(name = "host_score", nullable = false)
+  private int hostScore;
+  @Column(name = "guest-score", nullable = false)
+  private int guestScore;
+
+  @OneToMany(mappedBy = "recap")
+  private List<Set> sets;
 
 }

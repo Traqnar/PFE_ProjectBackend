@@ -1,0 +1,30 @@
+### Create ranking
+POST http://localhost:9003/ranking
+Content-Type: application/json
+
+{
+  "name": "hgsqddhgvhjed",
+  "minPoints": 44,
+  "maxPoints": 56
+}
+
+### Get by  name
+GET http://localhost:9003/ranking/hgsqddhgvhvvvjed
+
+### Gett all
+GET http://localhost:9003/rankings
+
+### Delete Name
+DELETE http://localhost:9003/ranking/hgsqddhgvhvvvjed
+
+
+
+### update
+PUT http://localhost:9003/ranking/hgsqddhgvhjed
+Content-Type: application/json
+
+{
+  "name": "hgsqddhgvhvvvjed",
+  "minPoints": 44,
+  "maxPoints": 569
+}

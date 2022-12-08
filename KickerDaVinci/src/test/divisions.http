@@ -1,0 +1,26 @@
+### Create division
+POST http://localhost:9003/division
+Content-Type: application/json
+
+{
+  "name": "hgsqddhgvhjed"
+}
+
+### Get by  name
+GET http://localhost:9003/division/hgsqddhgvhjed
+
+### Gett all
+GET http://localhost:9003/divisions
+
+### Delete Name
+DELETE http://localhost:9003/division/hgsqdggehgegeehgehgehgeghehgehgehgeddhgvhjed
+
+
+
+### update
+PUT http://localhost:9003/division/hgsqddhgvhjed
+Content-Type: application/json
+
+{
+  "name": "hgsqdggehgegeehgehgehgeghehgehgehgeddhgvhjed"
+}

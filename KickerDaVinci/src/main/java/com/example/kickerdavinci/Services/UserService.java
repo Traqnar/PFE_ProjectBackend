@@ -4,8 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.kickerdavinci.AuthenticationProperties;
-import com.example.kickerdavinci.Models.Credentials;
-import com.example.kickerdavinci.Models.NoIdUser;
+import com.example.kickerdavinci.Models.model.Credentials;
+import com.example.kickerdavinci.Models.model.NoIdUser;
 import com.example.kickerdavinci.Models.User;
 import com.example.kickerdavinci.Repository.UsersRepository;
 import org.mindrot.jbcrypt.BCrypt;
@@ -24,13 +24,6 @@ public class UserService {
     this.usersRepository = usersRepository;
     this.jwtAlgorithm = Algorithm.HMAC512(properties.getSecret());
     this.jwtVerifier = JWT.require(this.jwtAlgorithm).withIssuer("auth0").build();
-  }
-
-
-  public boolean createUser(NoIdUser user) {
-    boolean created = createOne(user);
-    return created;
-
   }
 
   public boolean createOne(NoIdUser user) {
@@ -54,5 +47,20 @@ public class UserService {
     }
     return JWT.create().withIssuer("auth0").withClaim("pseudo", user.getEmail())
         .sign(this.jwtAlgorithm);
+  }
+
+  public boolean existsEmail(String email) {
+    return usersRepository.existsByEmail(email);
+  }
+
+  public boolean update(User user, String email) {
+    if (usersRepository.existsByEmail(user.getEmail())) {
+      return false;
+    }
+    User userDb = usersRepository.findByEmail(email);
+    user.setId(userDb.getId());
+    user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+    usersRepository.save(user);
+    return true;
   }
 }

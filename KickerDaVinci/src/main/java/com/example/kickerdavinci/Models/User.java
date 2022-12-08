@@ -35,7 +35,7 @@ public class User {
   @Column(name = "ranking_points")
   private int rankingPoints;
   @ManyToOne(fetch=FetchType.LAZY)
-  @JoinColumn(name = "CLUB_ID")
+  @JoinColumn(name = "CLUB_ID", referencedColumnName = "ID")
   private Club club;
 
 }

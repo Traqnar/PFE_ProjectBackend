@@ -42,7 +42,9 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <spring.boot.mainclass>com.example.kickerdavinci</spring.boot.mainclass>
+        <configuration>
+          <mainClass>com.example.kickerdavinci</mainClass>
+        </configuration>
       </plugin>
     </plugins>
   </build>

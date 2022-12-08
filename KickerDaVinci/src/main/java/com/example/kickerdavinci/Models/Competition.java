@@ -3,6 +3,7 @@ import javax.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,5 +25,10 @@ public class Competition {
 
     @Column(name="note")
     private String note;
+
+    @OneToMany
+    private List<Club> teams;
+    @OneToMany(mappedBy = "competition")
+    private List<Game> games;
 
 }

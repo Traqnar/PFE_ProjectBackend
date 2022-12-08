@@ -1,11 +1,8 @@
 package com.example.kickerdavinci.Models;
 
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,19 +22,20 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private long Id;
-  @Column(name = "email")
+  @Column(name = "email", nullable = false)
   private String email;
-  @Column(name = "password")
+  @Column(name = "password", nullable = false)
   private String password;
-  @Column(name = "birth_date")
+  @Column(name = "birth_date", nullable = false)
   private LocalDate birthDate;
-  @Column(name = "firstname")
+  @Column(name = "firstname", nullable = false)
   private String firstname;
-  @Column(name = "lastname")
+  @Column(name = "lastname", nullable = false)
   private String lastname;
   @Column(name = "ranking_points")
   private int rankingPoints;
-  @Column(name = "club_id")
-  private int idClub;
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name = "CLUB_ID")
+  private Club club;
 
 }

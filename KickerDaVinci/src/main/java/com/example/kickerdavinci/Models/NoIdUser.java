@@ -17,9 +17,9 @@ public class NoIdUser {
   private LocalDate birthDate;
   private String firstname;
   private String lastname;
-  private int idClub;
+  private Club club;
 
   public User toUser() {
-    return new User(0L, email, password, birthDate, firstname, lastname, 0, idClub);
+    return new User(0L, email, password, birthDate, firstname, lastname, 0, club);
   }
 }

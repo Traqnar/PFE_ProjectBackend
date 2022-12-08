@@ -27,7 +27,7 @@ public class UserController {
         .equals("")
         || user.getPassword() == null || user.getPassword().equals("") || user.getBirthDate()
         .isAfter(
-            LocalDate.now()) || user.getIdClub() <= 0) {
+            LocalDate.now()) || user.getClub() == null) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
     if (!userService.createOne(user)) {

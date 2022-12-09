@@ -16,12 +16,6 @@ public class Set {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private long Id;
-  @ManyToOne
-  @JoinColumn(name = "RECAP_ID", referencedColumnName = "ID")
-  private GameRecap recap;
-
-  @Column(name = "num", nullable = false)
-  private int num;
 
   @OneToOne
   @JoinColumn(name = "HOST_PLAYER_1_ID", referencedColumnName = "ID", nullable = false)
@@ -47,4 +41,12 @@ public class Set {
   @OneToOne
   @JoinColumn(name = "GUEST_RESERVE_2_ID", referencedColumnName = "ID")
   private User guestReserve2;
+
+  @ManyToOne
+  @JoinColumn(name = "RECAP_ID", referencedColumnName = "ID")
+  private GameRecap recap;
+
+  @Column(name = "num", nullable = false)
+  private int num;
+
 }

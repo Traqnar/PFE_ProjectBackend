@@ -1,15 +1,16 @@
 package com.example.kickerdavinci.Services;
 
+import com.example.kickerdavinci.Repository.ClubsRepository;
 import com.example.kickerdavinci.Repository.UsersRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClubService {
 
-  private final UsersRepository usersRepository;
+  private final ClubsRepository clubsRepository;
 
-  public ClubService(UsersRepository usersRepository) {
-    this.usersRepository = usersRepository;
+  public ClubService(ClubsRepository clubsRepository) {
+    this.clubsRepository = clubsRepository;
   }
 
   public boolean createOne() {

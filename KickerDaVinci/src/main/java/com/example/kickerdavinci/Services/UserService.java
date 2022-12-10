@@ -3,6 +3,7 @@ package com.example.kickerdavinci.Services;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.example.kickerdavinci.AuthenticationProperties;
 import com.example.kickerdavinci.Models.model.Credentials;
 import com.example.kickerdavinci.Models.model.NoIdUser;
@@ -38,7 +39,7 @@ public class UserService {
   }
 
   public String connect(Credentials credentials) {
-    User user = usersRepository.findByEmail(credentials.getEmail());
+    User user = findUser(credentials.getEmail());
     if (user == null) {
       return null;
     }
@@ -57,10 +58,28 @@ public class UserService {
     if (usersRepository.existsByEmail(user.getEmail())) {
       return false;
     }
-    User userDb = usersRepository.findByEmail(email);
+    User userDb = findUser(email);
     user.setId(userDb.getId());
     user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
     usersRepository.save(user);
     return true;
+  }
+
+  public User findUser(String email) {
+    return usersRepository.findByEmail(email);
+  }
+
+  public Iterable<User> getAll() {
+    return usersRepository.findAll();
+  }
+
+  public String verify(String token) {
+    try {
+      String email = jwtVerifier.verify(token).getClaim("pseudo").asString();
+      if (!usersRepository.existsByEmail(email)) return null;
+      return email;
+    } catch (JWTVerificationException e) {
+      return null;
+    }
   }
 }

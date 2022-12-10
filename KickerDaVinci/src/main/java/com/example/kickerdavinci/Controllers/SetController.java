@@ -1,6 +1,5 @@
 package com.example.kickerdavinci.Controllers;
 
-import com.example.kickerdavinci.Services.ClubService;
 import com.example.kickerdavinci.Services.SetService;
 import org.springframework.web.bind.annotation.RestController;
 

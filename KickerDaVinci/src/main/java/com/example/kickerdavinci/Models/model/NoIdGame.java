@@ -1,11 +1,9 @@
 package com.example.kickerdavinci.Models.model;
 
-
 import com.example.kickerdavinci.Models.Club;
 import com.example.kickerdavinci.Models.Competition;
+import com.example.kickerdavinci.Models.Cup;
 import com.example.kickerdavinci.Models.Game;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,15 +13,17 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class NoIdCompetition {
+public class NoIdGame {
 
-  private LocalDate date;
+  private Club hostClub;
 
-  private int maxSlots;
+  private Club guestClub;
 
-  private String note;
+  private Competition competition;
 
-  public Competition toCompetition() {
-    return new Competition(0L, date, maxSlots, note,new ArrayList<Club>(),new ArrayList<Game>());
+  private Cup cup;
+
+  public Game toGame() {
+    return new Game(0L, hostClub, guestClub, competition, cup);
   }
 }

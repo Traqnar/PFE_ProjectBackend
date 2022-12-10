@@ -6,13 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka_server" />
         <module name="KickerDaVinci" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka_server" target="17" />
-      <module name="KickerDaVinci" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

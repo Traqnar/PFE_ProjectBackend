@@ -1,6 +1,5 @@
 package com.example.kickerdavinci.Repository;
 
-import com.example.kickerdavinci.Models.Competition;
 import com.example.kickerdavinci.Models.Cup;
 import java.time.LocalDate;
 import javax.transaction.Transactional;

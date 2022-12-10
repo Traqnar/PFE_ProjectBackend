@@ -9,13 +9,13 @@ Content-Type: application/json
 }
 
 ### Get by  name
-GET http://localhost:9003/ranking/hgsqddhgvhvvvjed
+GET http://localhost:9003/ranking/hgsqddhgvhjed
 
 ### Gett all
 GET http://localhost:9003/rankings
 
 ### Delete Name
-DELETE http://localhost:9003/ranking/hgsqddhgvhvvvjed
+DELETE http://localhost:9003/ranking/hgsqddhgvhjed
 
 
 

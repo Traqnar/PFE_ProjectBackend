@@ -2,8 +2,8 @@ package com.example.kickerdavinci.Models;
 
 import javax.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +25,9 @@ public class Cup {
   @Column(name = "end_date", nullable = false)
   private LocalDate endDate;
 
-  //Awaiting prof approval of usage for cup entries
+  @OneToMany
+  private List<Club> teams;
+  @OneToMany(mappedBy = "cup")
+  private List<Game> games;
 
 }

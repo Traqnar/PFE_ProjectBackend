@@ -1,7 +1,6 @@
 package com.example.kickerdavinci.Services;
 
 import com.example.kickerdavinci.Repository.GameRecapRepository;
-import com.example.kickerdavinci.Repository.UsersRepository;
 import org.springframework.stereotype.Service;
 
 @Service

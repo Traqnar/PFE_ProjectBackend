@@ -3,23 +3,11 @@ POST http://localhost:9003/user
 Content-Type: application/json
 
 {
-  "password": "hgsqddhgvhjed",
-  "email": "tgahjdjhdjhdjhdjhdest",
+  "password": "test",
+  "email": "test",
   "birthDate": "2007-12-03",
-  "firstname": "azertyy",
-  "lastname": "azerty"
-}
-
-### Update user
-PUT http://localhost:9003/user/tgahjdjhdjhdjhdjhdest
-Content-Type: application/json
-
-{
-  "password": "hgsqdvhvdhgvnhjed",
-  "email": "tghjdhihvhvhhjhdjhdjhdjhdest",
-  "birthDate": "2009-12-03",
-  "firstname": "azehvvhrtyy",
-  "lastname": "azehvhrty"
+  "firstname": "aggzertyy",
+  "lastname": "abhgzerty"
 }
 
 ### Connect user
@@ -27,6 +15,24 @@ POST http://localhost:9003//authentication/connect
 Content-Type: application/json
 
 {
-  "email": "tghjdhihvhvhhjhdjhdjhdjhdest",
-  "password": "hgsqdvhvdhgvnhjed"
+  "email": "test",
+  "password": "test"
 }
+> {% client.global.set("token", response.body) %}
+
+### Update user
+PUT http://localhost:9003/user/test
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "password": "azhjvhjverty",
+  "email": "azerhjhvjhty",
+  "birthDate": "2009-12-03",
+  "firstname": "mplo",
+  "lastname": "olpm"
+}
+
+
+### get all users
+GET http://localhost:9003/users

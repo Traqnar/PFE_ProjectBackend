@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsersRepository extends CrudRepository<User, Long> {
 
-  boolean existsByLastnameAndFirstname(String lastname, String firstaname);
-
   boolean existsByEmail(String email);
 
   User findByEmail(String email);

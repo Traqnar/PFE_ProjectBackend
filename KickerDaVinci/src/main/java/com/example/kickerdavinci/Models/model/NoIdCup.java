@@ -1,14 +1,11 @@
 package com.example.kickerdavinci.Models.model;
 
 
+import com.example.kickerdavinci.Models.Club;
 import com.example.kickerdavinci.Models.Cup;
+import com.example.kickerdavinci.Models.Game;
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import lombok.AllArgsConstructor;
+import java.util.ArrayList;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +23,6 @@ public class NoIdCup {
   private LocalDate endDate;
 
   public Cup toCup(){
-    return new Cup(0L, name, startDate, endDate);
+    return new Cup(0L, name, startDate, endDate, new ArrayList<Club>(), new ArrayList<Game>());
   }
 }

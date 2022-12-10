@@ -2,7 +2,6 @@ package com.example.kickerdavinci.Models;
 
 import lombok.*;
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -32,11 +31,4 @@ public class Game {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "CUP_ID")
   private Cup cup;
-
-  @Column(name = "cup_position")
-  private String position;
-
-  @Column(name="cup_date")
-  private LocalDate date;
-
 }

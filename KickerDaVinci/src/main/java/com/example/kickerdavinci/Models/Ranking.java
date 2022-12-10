@@ -1,7 +1,6 @@
 package com.example.kickerdavinci.Models;
 
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

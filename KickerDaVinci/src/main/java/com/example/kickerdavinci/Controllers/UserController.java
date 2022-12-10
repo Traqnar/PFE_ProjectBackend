@@ -1,15 +1,18 @@
 package com.example.kickerdavinci.Controllers;
 
+import com.example.kickerdavinci.Models.User;
 import com.example.kickerdavinci.Models.model.Credentials;
 import com.example.kickerdavinci.Models.model.NoIdUser;
 import com.example.kickerdavinci.Services.UserService;
 import java.time.LocalDate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -29,8 +32,7 @@ public class UserController {
         .equals("")
         || user.getPassword() == null || user.getPassword().equals("") || user.getBirthDate()
         .isAfter(
-            LocalDate.now()) /* || user.getClub() == null
-     */) {
+            LocalDate.now())) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
     if (!userService.createOne(user)) {
@@ -40,7 +42,13 @@ public class UserController {
   }
 
   @PutMapping("/user/{email}")
-  public ResponseEntity<Void> updateUser(@RequestBody NoIdUser user, @PathVariable String email) {
+  public ResponseEntity<Void> updateUser(@RequestBody NoIdUser user, @PathVariable String email,
+      @RequestHeader("Authorization") String token) {
+    String userVerified = userService.verify(token);
+    if (!userVerified.equals(email)) {
+      throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+    }
+
     if (user.getLastname() == null || user.getLastname().equals("") || user.getFirstname() == null
         || user.getFirstname().equals("") || user.getEmail() == null || user.getEmail()
         .equals("")
@@ -74,4 +82,8 @@ public class UserController {
     return token;
   }
 
+  @GetMapping("/users")
+  public ResponseEntity<Iterable<User>> getAll() {
+    return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
+  }
 }

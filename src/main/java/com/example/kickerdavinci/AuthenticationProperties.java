@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "com.example.kickerdavinci")
 public class AuthenticationProperties {
 
-  private String secret;
+  private String secret = "qwerty1234";
 }

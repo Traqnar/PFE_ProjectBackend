@@ -3,9 +3,9 @@ package com.example.kickerdavinci.Repository;
 import com.example.kickerdavinci.Models.Competition;
 import java.time.LocalDate;
 import javax.transaction.Transactional;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CompetitionsRepository extends CrudRepository<Competition, Long> {
+public interface CompetitionsRepository extends JpaRepository<Competition, Long> {
 
   boolean existsByDate(LocalDate date);
 

@@ -1,5 +1,5 @@
 package com.example.kickerdavinci;
-
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class KickerDaVinciApplicationTests {
 
   @Test
-  void contextLoads() {
+  void test() {
+    assertTrue(true);
   }
-
 }

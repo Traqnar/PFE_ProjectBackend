@@ -55,4 +55,9 @@ public class DivisionService {
     System.out.println(divisionsRepository.findAll());
     return true;
   }
+
+
+  public Division findByName(String divisionName) {
+   return divisionsRepository.getByName(divisionName);
+  }
 }

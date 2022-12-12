@@ -31,7 +31,11 @@ public class CompetitionService {
     return competitionsRepository.findByDate(date);
   }
 
-  public boolean deleteBydate(LocalDate date) {
+  public Competition findById(long id){
+    return competitionsRepository.findById(id);
+  }
+
+  public boolean deleteByDate(LocalDate date) {
     if (!competitionsRepository.existsByDate(date)) {
       return false;
     }

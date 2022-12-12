@@ -11,5 +11,9 @@ public interface UsersRepository extends JpaRepository<User, Long> {
   boolean existsByEmail(String email);
 
   User findByEmail(String email);
+  User findById(long id);
+  void deleteById(long id);
+
+  Iterable<User> findAllByAdminFlag(boolean flag);
 }
 

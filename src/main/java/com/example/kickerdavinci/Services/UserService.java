@@ -68,6 +68,13 @@ public class UserService {
   public User findUser(String email) {
     return usersRepository.findByEmail(email);
   }
+  public User findUserbyId(long id){
+    return usersRepository.findById(id);
+  }
+
+  public void deleteById(long id){
+    usersRepository.deleteById(id);
+  }
 
   public Iterable<User> getAll() {
     return usersRepository.findAll();
@@ -82,4 +89,6 @@ public class UserService {
       return null;
     }
   }
+
+  public Iterable<User> findAllByFlag(){return usersRepository.findAllByAdminFlag(true);}
 }

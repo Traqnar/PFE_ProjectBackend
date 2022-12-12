@@ -86,4 +86,8 @@ public class UserController {
   public ResponseEntity<Iterable<User>> getAll() {
     return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
   }
+
+  @GetMapping("/users/admin")
+  public ResponseEntity<Iterable<User>> findAllByFlag(){return new ResponseEntity<>(userService.findAllByFlag(), HttpStatus.OK);}
+
 }

@@ -13,4 +13,5 @@ public interface DivisionsRepository extends JpaRepository<Division, Long> {
   @Transactional
   void deleteByName(String name);
 
+    Division getByName(String divisionName);
 }

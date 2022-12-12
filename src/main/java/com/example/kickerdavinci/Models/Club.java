@@ -46,4 +46,6 @@ public class Club {
 
   @OneToMany(mappedBy = "club")
   private List<User> players;
+
+
 }

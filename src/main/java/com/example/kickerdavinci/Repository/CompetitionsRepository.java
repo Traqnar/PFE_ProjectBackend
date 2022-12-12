@@ -11,6 +11,8 @@ public interface CompetitionsRepository extends JpaRepository<Competition, Long>
 
   Competition findByDate(LocalDate date);
 
+  Competition findById(long id);
+
   @Transactional
   void deleteByDate(LocalDate date);
 }

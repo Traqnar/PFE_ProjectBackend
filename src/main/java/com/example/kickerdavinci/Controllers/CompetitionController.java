@@ -51,14 +51,13 @@ public class CompetitionController {
     return new ResponseEntity<>(competitionService.getCompetitionByDate(date), HttpStatus.OK);
   }
 
-
   @DeleteMapping("/competition/{date}")
   public ResponseEntity<Void> deleteByName(@PathVariable LocalDate date) {
     if (date.isBefore(
         LocalDate.now())) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
-    if (!competitionService.deleteBydate(date)) {
+    if (!competitionService.deleteByDate(date)) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
     return new ResponseEntity<>(HttpStatus.OK);

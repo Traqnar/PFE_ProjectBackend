@@ -5,6 +5,8 @@ import com.example.kickerdavinci.Models.model.NoIdClub;
 import com.example.kickerdavinci.Repository.ClubsRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClubService {
 
@@ -23,6 +25,7 @@ public class ClubService {
     return true;
   }
 
+  public Club getClubById(long id){ return clubsRepository.findById(id);}
 
   public Iterable<Club> getAll() {
     return clubsRepository.findAll();
@@ -53,5 +56,10 @@ public class ClubService {
     System.out.println(clubsRepository.findAll());
     return true;
   }
+
+  public List<Club> findByDivisionId(long id) {
+    return clubsRepository.findAllByDivision(id);
+  }
+
 
 }

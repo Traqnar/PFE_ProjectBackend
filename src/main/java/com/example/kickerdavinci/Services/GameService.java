@@ -1,7 +1,10 @@
 package com.example.kickerdavinci.Services;
 
+import com.example.kickerdavinci.Models.Game;
 import com.example.kickerdavinci.Repository.GameRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class GameService {
@@ -15,4 +18,8 @@ public class GameService {
   public boolean createOne() {
     return true;
   }
+
+    public List<Game> findByCompetitionId(long id) {
+    return gameRepository.findByCompetition(id);
+    }
 }

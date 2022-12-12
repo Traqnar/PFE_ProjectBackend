@@ -3,9 +3,10 @@ package com.example.kickerdavinci.Services;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.example.kickerdavinci.AuthenticationProperties;
-import com.example.kickerdavinci.Models.Credentials;
-import com.example.kickerdavinci.Models.NoIdUser;
+import com.example.kickerdavinci.Models.model.Credentials;
+import com.example.kickerdavinci.Models.model.NoIdUser;
 import com.example.kickerdavinci.Models.User;
 import com.example.kickerdavinci.Repository.UsersRepository;
 import org.mindrot.jbcrypt.BCrypt;
@@ -26,13 +27,6 @@ public class UserService {
     this.jwtVerifier = JWT.require(this.jwtAlgorithm).withIssuer("auth0").build();
   }
 
-
-  public boolean createUser(NoIdUser user) {
-    boolean created = createOne(user);
-    return created;
-
-  }
-
   public boolean createOne(NoIdUser user) {
 
     if (usersRepository.existsByEmail(user.getEmail())) {
@@ -45,7 +39,7 @@ public class UserService {
   }
 
   public String connect(Credentials credentials) {
-    User user = usersRepository.findByEmail(credentials.getEmail());
+    User user = findUser(credentials.getEmail());
     if (user == null) {
       return null;
     }
@@ -55,4 +49,46 @@ public class UserService {
     return JWT.create().withIssuer("auth0").withClaim("email", user.getEmail())
         .sign(this.jwtAlgorithm);
   }
+
+  public boolean existsEmail(String email) {
+    return usersRepository.existsByEmail(email);
+  }
+
+  public boolean update(User user, String email) {
+    if (usersRepository.existsByEmail(user.getEmail())) {
+      return false;
+    }
+    User userDb = findUser(email);
+    user.setId(userDb.getId());
+    user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+    usersRepository.save(user);
+    return true;
+  }
+
+  public User findUser(String email) {
+    return usersRepository.findByEmail(email);
+  }
+  public User findUserbyId(long id){
+    return usersRepository.findById(id);
+  }
+
+  public void deleteById(long id){
+    usersRepository.deleteById(id);
+  }
+
+  public Iterable<User> getAll() {
+    return usersRepository.findAll();
+  }
+
+  public String verify(String token) {
+    try {
+      String email = jwtVerifier.verify(token).getClaim("pseudo").asString();
+      if (!usersRepository.existsByEmail(email)) return null;
+      return email;
+    } catch (JWTVerificationException e) {
+      return null;
+    }
+  }
+
+  public Iterable<User> findAllByFlag(){return usersRepository.findAllByAdminFlag(true);}
 }

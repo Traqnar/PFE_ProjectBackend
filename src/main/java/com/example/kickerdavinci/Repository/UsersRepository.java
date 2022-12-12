@@ -8,10 +8,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsersRepository extends JpaRepository<User, Long> {
 
-  boolean existsByLastnameAndFirstname(String lastname, String firstaname);
+  boolean existsByEmail(String email);
 
-  boolean existsByEmail(String pseudo);
+  User findByEmail(String email);
+  User findById(long id);
+  void deleteById(long id);
 
-  User findByEmail(String pseudo);
+  Iterable<User> findAllByAdminFlag(boolean flag);
 }
 

@@ -1,0 +1,30 @@
+### Create competition
+POST http://localhost:9003/competition
+Content-Type: application/json
+
+{
+  "date": "2027-12-03",
+  "maxSlots": 23,
+  "note": "azerty"
+
+}
+
+### Get ALL competitions
+GET http://localhost:9003/competitions
+### Get ALL competitions by date
+GET http://localhost:9003/competitions/2027-12-03
+
+### Delete
+DELETE http://localhost:9003/competition/2029-12-03
+
+
+
+### update
+PUT http://localhost:9003/competition/2027-12-03
+Content-Type: application/json
+
+{
+  "date": "2029-12-03",
+  "maxSlots": 23,
+  "note": "azertfghfhfy"
+}

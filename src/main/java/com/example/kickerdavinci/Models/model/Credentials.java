@@ -1,4 +1,4 @@
-package com.example.kickerdavinci.Models;
+package com.example.kickerdavinci.Models.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

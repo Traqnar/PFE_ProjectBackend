@@ -2,7 +2,6 @@ package com.example.kickerdavinci.Models;
 
 import java.time.LocalDate;
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +33,9 @@ public class User {
   private String lastname;
   @Column(name = "ranking_points")
   private int rankingPoints;
-  @ManyToOne(fetch=FetchType.LAZY)
+  @Column(name="admin_flag")
+  private boolean adminFlag;
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "CLUB_ID", referencedColumnName = "ID")
   private Club club;
 

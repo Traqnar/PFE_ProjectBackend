@@ -1,0 +1,59 @@
+### Create club
+POST http://localhost:9003/club
+Content-Type: application/json
+
+{
+  "name": "test",
+  "local": "hhz",
+  "adresse": "yeyye",
+  "phone": "ehhe",
+  "captainPhone":  "hehhd",
+  "division": {
+    "id": 2,
+    "name": "hgsqddhgvhjed"
+  },
+  "captain": {
+    "id": 1,
+    "password": "hgsqddhgvhjed",
+    "email": "tgahjdjhdjhdjcffhdjhdest",
+    "birthDate": "2007-12-03",
+    "firstname": "azertyy",
+    "lastname": "azerty"
+  },
+  "players": []
+}
+
+### Get ALL clubs
+GET http://localhost:9003/clubs
+### Get ALL competitions by name
+GET http://localhost:9003/club/test
+
+### Delete
+DELETE http://localhost:9003/club/tester
+
+
+
+### update
+PUT http://localhost:9003/club/test
+Content-Type: application/json
+
+{
+  "name": "tester",
+  "local": "hhz",
+  "adresse": "yeyye",
+  "phone": "ehhe",
+  "captainPhone":  "hehhd",
+  "division": {
+    "id": 1,
+    "name": "hgsqddhgvhjed"
+  },
+  "captain": {
+    "id": 1,
+    "password": "hgsqddhghgvhjed",
+    "email": "tgahjdjhdjhdjcffhdjhdest",
+    "birthDate": "2007-12-03",
+    "firstname": "azertyy",
+    "lastname": "azerty"
+  },
+  "players": []
+}

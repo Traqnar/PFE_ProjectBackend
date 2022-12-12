@@ -1,0 +1,33 @@
+### Create competition
+POST http://localhost:9003/cup
+Content-Type: application/json
+
+{
+
+  "name": "hgsqddhgvhjed",
+  "startDate": "2007-12-03",
+  "endDate": "2008-12-03"
+}
+
+### Get by  name
+GET http://localhost:9003/cup/hgsqddhgvhjed
+
+### Gett all
+GET http://localhost:9003/cups
+
+### Delete Name
+DELETE http://localhost:9003/cup/hgsqdggehgegeehgehgehgeghehgehgehgeddhgvhjed
+
+### get by date
+GET http://localhost:9003/cup?start=2007-12-03&end=2008-12-03
+
+
+### update
+PUT http://localhost:9003/cup/hgsqddhgvhjed
+Content-Type: application/json
+
+{
+  "name": "hgsqdggehgegeehgehgehgeghehgehgehgeddhgvhjed",
+  "startDate": "2007-12-03",
+  "endDate": "2008-12-03"
+}

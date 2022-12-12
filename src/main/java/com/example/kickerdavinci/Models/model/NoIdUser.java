@@ -1,5 +1,7 @@
-package com.example.kickerdavinci.Models;
+package com.example.kickerdavinci.Models.model;
 
+import com.example.kickerdavinci.Models.Club;
+import com.example.kickerdavinci.Models.User;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,6 @@ public class NoIdUser {
   private Club club;
 
   public User toUser() {
-    return new User(0L, email, password, birthDate, firstname, lastname, 0, club);
+    return new User(0L, email, password, birthDate, firstname, lastname, 0,false, club);
   }
 }

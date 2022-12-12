@@ -2,7 +2,6 @@ package com.example.kickerdavinci.Models;
 
 import javax.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Getter
@@ -12,21 +11,22 @@ import java.util.List;
 @AllArgsConstructor
 @Entity(name = "Game_Recaps")
 public class GameRecap {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long Id;
 
-    @OneToOne
-    @JoinColumn(name="GAME_ID",unique = true, nullable = false)
-    private Game game;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private long Id;
 
-    @Column(name="host_score",nullable = false)
-    private int hostScore;
-    @Column(name = "guest_score",nullable = false)
-    private int guestScore;
+  @OneToOne
+  @JoinColumn(name = "GAME_ID", unique = true, nullable = false)
+  private Game game;
 
-    @OneToMany(mappedBy = "gameRecap")
-    private List<Set> sets;
+  @Column(name = "host_score", nullable = false)
+  private int hostScore;
+  @Column(name = "guest_score", nullable = false)
+  private int guestScore;
+
+  @OneToMany(mappedBy = "gameRecap")
+  private List<Set> sets;
 
 }

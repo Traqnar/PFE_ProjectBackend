@@ -11,11 +11,11 @@ import lombok.*;
 @Entity(name = "Divisions")
 public class Division {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private long id;
 
-    @Column(name = "name",unique = true, nullable = false)
-    private String name;
+  @Column(name = "name", unique = true, nullable = false)
+  private String name;
 }

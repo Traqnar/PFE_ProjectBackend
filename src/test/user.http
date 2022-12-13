@@ -1,13 +1,14 @@
 ### Create credentials
-POST http://localhost:9003/user
+POST https://kickervinci.azurewebsites.net/user
 Content-Type: application/json
 
 {
-  "password": "test",
-  "email": "test",
-  "birthDate": "2007-12-03",
-  "firstname": "aggzertyy",
-  "lastname": "abhgzerty"
+  "email": "useless@email.com",
+  "password": "admin123",
+  "birthDate": "2001-02-20",
+  "firstname": "uselss",
+  "lastname": "uselsslastname"
+
 }
 
 ### Connect user
@@ -35,4 +36,4 @@ Authorization: {{token}}
 
 
 ### get all users
-GET http://localhost:9003/users
+GET https://kickervinci.azurewebsites.net/users

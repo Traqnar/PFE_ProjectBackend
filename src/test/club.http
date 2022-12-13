@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Get ALL clubs
-GET http://localhost:9003/clubs
+GET https://kickervinci.azurewebsites.net/clubs
 ### Get ALL competitions by name
 GET http://localhost:9003/club/test
 

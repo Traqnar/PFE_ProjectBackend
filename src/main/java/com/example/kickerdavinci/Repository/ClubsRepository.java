@@ -1,6 +1,7 @@
 package com.example.kickerdavinci.Repository;
 
 import com.example.kickerdavinci.Models.Club;
+import com.example.kickerdavinci.Models.Division;
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -19,5 +20,5 @@ public interface ClubsRepository extends JpaRepository<Club, Long> {
   @Transactional
   void deleteByName(String name);
 
-  List<Club> findAllByDivision(long id);
+  List<Club> findAllByDivision(Division division);
 }

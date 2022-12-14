@@ -94,7 +94,7 @@ public class DivisionController {
     Division division = divisionService.findByName(divisionName);
 
     // Next, get all the clubs that belong to this division
-    List<Club> clubs = clubService.findByDivisionId(division.getId());
+    List<Club> clubs = clubService.findByDivisionId(division);
 
     // Create a list to store the competitions that we will return
     List<Competition> competitions = (List<Competition>) competitionService.getAll();
@@ -103,17 +103,18 @@ public class DivisionController {
     // Loop through each competition, get all clubs from it and get the clubs inside the clubs_from_division
     for (Competition competition: competitions) {
       for (Club club:competition.getTeams()) {
-        if (clubs.contains(club)) finalList.add(competition);
+        if (clubs.contains(club) && !finalList.contains(competition)) finalList.add(competition);
       }
     }
     // Loop through each competition and get all the games that belong to it
     for (Competition competition : finalList) {
-      List<Game> games = gameService.findByCompetitionId(competition.getId());
+      List<Game> games = gameService.findByCompetitionId(competition);
       competition.setGames(games);
     }
     // Return the list of competitions with their games and clubs
     return finalList;
   }
+
 
 
 }

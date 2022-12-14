@@ -3,11 +3,11 @@ POST https://kickervinci.azurewebsites.net/user
 Content-Type: application/json
 
 {
-  "email": "useless@email.com",
-  "password": "admin123",
+  "email": "MaximusThunderfoot@email.com",
+  "password": "kicker123",
   "birthDate": "2001-02-20",
-  "firstname": "uselss",
-  "lastname": "uselsslastname"
+  "firstname": "Maximus",
+  "lastname": "Thunderfoot"
 
 }
 
@@ -36,4 +36,4 @@ Authorization: {{token}}
 
 
 ### get all users
-GET https://kickervinci.azurewebsites.net/users
+GET https://localhost:9006/users

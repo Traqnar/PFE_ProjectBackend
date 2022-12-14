@@ -1,6 +1,7 @@
 package com.example.kickerdavinci.Services;
 
 import com.example.kickerdavinci.Models.Club;
+import com.example.kickerdavinci.Models.Division;
 import com.example.kickerdavinci.Models.model.NoIdClub;
 import com.example.kickerdavinci.Repository.ClubsRepository;
 import org.springframework.stereotype.Service;
@@ -57,9 +58,10 @@ public class ClubService {
     return true;
   }
 
-  public List<Club> findByDivisionId(long id) {
-    return clubsRepository.findAllByDivision(id);
+  public List<Club> findByDivisionId(Division division) {
+    return clubsRepository.findAllByDivision(division);
   }
+
 
 
 }

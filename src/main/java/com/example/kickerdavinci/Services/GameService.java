@@ -1,6 +1,7 @@
 package com.example.kickerdavinci.Services;
 
 import com.example.kickerdavinci.Models.Club;
+import com.example.kickerdavinci.Models.Competition;
 import com.example.kickerdavinci.Models.Game;
 import com.example.kickerdavinci.Models.model.NoIdGame;
 import com.example.kickerdavinci.Repository.GameRepository;
@@ -21,9 +22,9 @@ public class GameService {
     return true;
   }
 
-    public List<Game> findByCompetitionId(long id) {
-    return gameRepository.findByCompetition(id);
-    }
+  public List<Game> findByCompetitionId(Competition competition) {
+    return gameRepository.findByCompetition(competition);
+  }
     public List<Game> getAll(){
     return gameRepository.findAll();
     }

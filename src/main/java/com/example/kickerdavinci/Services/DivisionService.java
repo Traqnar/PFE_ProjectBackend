@@ -58,6 +58,6 @@ public class DivisionService {
 
 
   public Division findByName(String divisionName) {
-   return divisionsRepository.getByName(divisionName);
+    return divisionsRepository.findByName(divisionName);
   }
 }

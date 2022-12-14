@@ -46,7 +46,7 @@ public class UserService {
     if (!BCrypt.checkpw(credentials.getPassword(), user.getPassword())) {
       return null;
     }
-    return JWT.create().withIssuer("auth0").withClaim("pseudo", user.getEmail())
+    return JWT.create().withIssuer("auth0").withClaim("email", user.getEmail())
         .sign(this.jwtAlgorithm);
   }
 

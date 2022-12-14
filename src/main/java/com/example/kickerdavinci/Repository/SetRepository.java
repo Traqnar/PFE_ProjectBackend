@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
     public interface SetRepository extends JpaRepository<Set, Long> {
 
-    boolean existsByGame(GameRecap gameRecap);
-    Set findByGame(GameRecap gameRecap);
+    boolean existsByGameRecap(GameRecap gameRecap);
+    Set findByGameRecap(GameRecap gameRecap);
 
     }
 

@@ -7,7 +7,7 @@ Content-Type: application/json
 }
 
 ### Get by  name
-GET http://localhost:8080/divisions/Kickerpremierleague
+GET http://localhost:9003/divisions/Kickerpremierleague
 
 ### Gett all
 GET http://localhost:9003/divisions

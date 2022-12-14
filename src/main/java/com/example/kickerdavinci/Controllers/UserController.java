@@ -85,7 +85,6 @@ public class UserController {
 
   @GetMapping("/users")
   public ResponseEntity<Iterable<User>> getAll() {
-
     return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
   }
 

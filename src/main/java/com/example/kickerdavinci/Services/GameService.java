@@ -22,16 +22,16 @@ public class GameService {
     return true;
   }
 
-  public List<Game> findByCompetitionId(Competition competition) {
+  public Iterable<Game> findByCompetitionId(Competition competition) {
     return gameRepository.findByCompetition(competition);
   }
-    public List<Game> getAll(){
+    public Iterable<Game> getAll(){
     return gameRepository.findAll();
     }
-    public List<Game> getAllHostClub(Club club){
+    public Iterable<Game> getAllHostClub(Club club){
     return gameRepository.findByHostClub(club);
     }
-  public List<Game> getAllGuestClub(Club club){
+  public Iterable<Game> getAllGuestClub(Club club){
     return gameRepository.findByGuestClub(club);
   }
   public boolean deleteById(long id) {

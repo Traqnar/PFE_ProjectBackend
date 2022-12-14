@@ -17,7 +17,7 @@ public class SetService {
   public SetService(SetRepository setRepository) {
     this.setRepository = setRepository;
   }
-  
+
   public boolean createOne(NoIdSet set) {
     setRepository.save(set.toSet());
     return true;

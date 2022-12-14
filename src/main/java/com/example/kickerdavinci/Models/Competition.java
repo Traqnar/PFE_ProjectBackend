@@ -3,6 +3,7 @@ package com.example.kickerdavinci.Models;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -31,7 +32,7 @@ public class Competition {
 
   @OneToMany
   private List<Club> teams;
-  @JsonBackReference
+  @JsonManagedReference
   @OneToMany(mappedBy = "competition")
   private List<Game> gamesPlayed;
 

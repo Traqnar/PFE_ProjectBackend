@@ -20,11 +20,11 @@ import java.util.List;
 @RestController
 public class GameController {
 
-
+  @Autowired
   private final GameService gameService;
-
+  @Autowired
   private final CompetitionService competitionService;
-
+  @Autowired
   private final ClubService clubService;
 
   public GameController(GameService gameService, CompetitionService competitionService, ClubService clubService) {

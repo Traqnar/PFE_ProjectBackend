@@ -23,7 +23,7 @@ public class GameService {
     return true;
   }
 
-  public Iterable<Game> findByCompetitionId(Competition competition) {
+  public List<Game> findByCompetitionId(Competition competition) {
     return gameRepository.findByCompetition(competition);
   }
   public Iterable<Game> getAll() {

@@ -13,7 +13,7 @@ import java.util.List;
     List<Game> findByHostClub(Club club);
     List<Game> findByGuestClub(Club club);
     boolean deleteById(long id);
-    boolean findById (long id);
+    Game findById (long id);
     List<Game> findByCompetition(Competition competetion);
 }
 

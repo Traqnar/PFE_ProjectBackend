@@ -6,6 +6,7 @@ import com.example.kickerdavinci.Models.Game;
 import com.example.kickerdavinci.Models.User;
 import com.example.kickerdavinci.Models.model.NoIdGame;
 import com.example.kickerdavinci.Repository.GameRepository;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,5 +42,10 @@ public class GameService {
   }
     gameRepository.deleteById(id);
     return true;
+  }
+
+
+  public Game findGamebyId(long id){
+    return gameRepository.findById(id);
   }
 }

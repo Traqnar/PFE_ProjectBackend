@@ -22,9 +22,9 @@ public class GameController {
 
 
   private final GameService gameService;
-
+  @Autowired
   private final CompetitionService competitionService;
-
+  @Autowired
   private final ClubService clubService;
 
   public GameController(GameService gameService, CompetitionService competitionService, ClubService clubService) {
@@ -50,6 +50,7 @@ public class GameController {
     List<Game> games = gameService.getAllHostClub(club);
     return ResponseEntity.ok(games);
   }
+
   @GetMapping("/game/guest/{guestClubName}")
   public ResponseEntity<List<Game>> findGamesByGuestName(@PathVariable String guestClubName) {
     if (guestClubName == null || guestClubName.equals("")) {
@@ -61,7 +62,7 @@ public class GameController {
   }
 
   @GetMapping("/games")
-  public ResponseEntity<Iterable<Game>> getAllGames() {
+  public ResponseEntity<Iterable<Game>> getAll() {
     return new ResponseEntity<>(gameService.getAll(), HttpStatus.OK);
   }
 
@@ -73,4 +74,8 @@ public class GameController {
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
+  @GetMapping("/game/{id}")
+  public ResponseEntity<Game> getOneById(@PathVariable long id) {
+    return new ResponseEntity<>(gameService.findGamebyId(id), HttpStatus.OK);
+  }
 }

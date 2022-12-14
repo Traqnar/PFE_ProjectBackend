@@ -28,11 +28,11 @@ import java.util.List;
 public class DivisionController {
 
   private final DivisionService divisionService;
-
+  @Autowired
   private final CompetitionService competitionService;
-
+  @Autowired
   private final ClubService clubService;
-
+  @Autowired
   private final GameService gameService;
 
 
@@ -108,7 +108,7 @@ public class DivisionController {
     // Loop through each competition and get all the games that belong to it
     for (Competition competition : finalList) {
       List<Game> games = gameService.findByCompetitionId(competition);
-      competition.setGames(games);
+      competition.setGamesPlayed(games);
     }
     // Return the list of competitions with their games and clubs
     return finalList;

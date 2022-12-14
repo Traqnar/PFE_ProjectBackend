@@ -27,13 +27,12 @@ import java.util.List;
 @RestController
 public class DivisionController {
 
-  @Autowired
   private final DivisionService divisionService;
-  @Autowired
+
   private final CompetitionService competitionService;
-  @Autowired
+
   private final ClubService clubService;
-  @Autowired
+
   private final GameService gameService;
 
 

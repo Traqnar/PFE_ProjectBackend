@@ -24,6 +24,6 @@ public class NoIdGame {
   private Cup cup;
 
   public Game toGame() {
-    return new Game(0L, hostClub, guestClub, competition, cup);
+    return new Game(0L, hostClub, guestClub, competition, cup, 0, null);
   }
 }

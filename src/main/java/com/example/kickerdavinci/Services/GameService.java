@@ -1,6 +1,8 @@
 package com.example.kickerdavinci.Services;
 
+import com.example.kickerdavinci.Models.Club;
 import com.example.kickerdavinci.Models.Game;
+import com.example.kickerdavinci.Models.model.NoIdGame;
 import com.example.kickerdavinci.Repository.GameRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +17,27 @@ public class GameService {
     this.gameRepository = gameRepository;
   }
 
-  public boolean createOne() {
+  public boolean createOne(NoIdGame game) {
     return true;
   }
 
     public List<Game> findByCompetitionId(long id) {
     return gameRepository.findByCompetition(id);
     }
+    public List<Game> getAll(){
+    return gameRepository.findAll();
+    }
+    public List<Game> getAllHostClub(Club club){
+    return gameRepository.findByHostClub(club);
+    }
+  public List<Game> getAllGuestClub(Club club){
+    return gameRepository.findByGuestClub(club);
+  }
+  public boolean deleteById(long id) {
+    if (!gameRepository.existsById(id)) {
+    return false;
+  }
+    gameRepository.deleteById(id);
+    return true;
+  }
 }

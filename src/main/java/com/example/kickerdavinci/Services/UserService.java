@@ -91,7 +91,9 @@ public class UserService {
       return null;
     }
   }
-
+  public Iterable<User> getAllWithoutClub() {
+    return usersRepository.findByClubIsNull();
+  }
   public Iterable<User> findAllByFlag(){return usersRepository.findAllByAdminFlag(true);}
 
   public Iterable<User> getAllSortedByRanking(){

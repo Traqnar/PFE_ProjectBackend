@@ -1,6 +1,9 @@
 package com.example.kickerdavinci.Models;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import java.util.List;
 
@@ -25,7 +28,7 @@ public class GameRecap {
   private int hostScore;
   @Column(name = "guest_score", nullable = false)
   private int guestScore;
-
+  @JsonManagedReference
   @OneToMany(mappedBy = "gameRecap")
   private List<Set> sets;
 

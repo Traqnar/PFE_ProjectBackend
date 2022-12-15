@@ -1,6 +1,8 @@
 package com.example.kickerdavinci.Models;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 @Getter
@@ -15,6 +17,7 @@ public class Set {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private long Id;
+  @JsonBackReference
   @ManyToOne
   @JoinColumn(name = "GAME_RECAP_ID", referencedColumnName = "ID")
   private GameRecap gameRecap;

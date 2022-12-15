@@ -32,7 +32,7 @@ public class GameRecapController {
   }
 
   @GetMapping("/gameRecaps")
-  public ResponseEntity<List<GameRecap>> getAllCups() {
+  public ResponseEntity<List<GameRecap>> getALl() {
     return new ResponseEntity<>(gameRecapService.getAll(), HttpStatus.OK);
   }
 

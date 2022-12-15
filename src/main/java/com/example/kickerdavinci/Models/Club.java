@@ -3,7 +3,6 @@ package com.example.kickerdavinci.Models;
 import java.util.List;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,8 +45,7 @@ public class Club {
   @JoinColumn(name = "USER_ID")
   private User captain;
 
-  @JsonBackReference
-
+  @JsonManagedReference
   @OneToMany(mappedBy = "club")
   private List<User> players;
 

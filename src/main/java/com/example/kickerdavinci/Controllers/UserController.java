@@ -83,7 +83,10 @@ public class UserController {
     //return the token inside a json object
     return "{\"token\":\"" + token + "\"}";
   }
-
+  @GetMapping("/usersWithoutClub")
+  public ResponseEntity<Iterable<User>> getAllWithoutClub() {
+    return new ResponseEntity<>(userService.getAllWithoutClub(), HttpStatus.OK);
+  }
   @GetMapping("/users")
   public ResponseEntity<Iterable<User>> getAll() {
     return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);

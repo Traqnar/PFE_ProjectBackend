@@ -27,8 +27,12 @@ public class NoIdSet {
 
   private User guestReserve2;
 
+  private int guestScore;
+
+  private int hostScore;
+
   public Set toSet() {
     return new Set(0L, gameRecap, num, hostPlayer1, hostPlayer2, guestPlayer1, guestPlayer2,
-        hostReserve1, hostReserve2, guestReserve1, guestReserve2);
+        hostReserve1, hostReserve2, guestReserve1, guestReserve2, guestScore,hostScore);
   }
 }

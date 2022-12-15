@@ -2,6 +2,8 @@ package com.example.kickerdavinci.Models;
 
 import java.time.LocalDate;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,7 @@ public class User {
   private int rankingPoints;
   @Column(name="admin_flag")
   private boolean adminFlag;
+  @JsonBackReference
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "CLUB_ID", referencedColumnName = "ID")
   private Club club;

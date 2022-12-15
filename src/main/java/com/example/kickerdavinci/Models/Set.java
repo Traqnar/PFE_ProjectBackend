@@ -46,4 +46,9 @@ public class Set {
   @OneToOne
   @JoinColumn(name = "GUEST_RESERVE_2_ID", referencedColumnName = "ID")
   private User guestReserve2;
+
+  @Column(name="guest_score")
+  private int guestScore;
+  @Column(name="host_score")
+  private int hostScore;
 }

@@ -1,5 +1,6 @@
 package com.example.kickerdavinci.Services;
 
+import com.example.kickerdavinci.Models.Game;
 import com.example.kickerdavinci.Models.GameRecap;
 import com.example.kickerdavinci.Models.model.NoIdClub;
 import com.example.kickerdavinci.Models.model.NoIdGameRecap;
@@ -32,6 +33,10 @@ public class GameRecapService {
     }
     gameRecapRepository.deleteById(id);
     return true;
+  }
+
+  public GameRecap getByGame(Game game){
+    return gameRecapRepository.findByGame(game);
   }
   }
 

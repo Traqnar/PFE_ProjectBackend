@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
     boolean existsByGame(Game game);
     GameRecap findByGame(Game game);
+
 }
 
 

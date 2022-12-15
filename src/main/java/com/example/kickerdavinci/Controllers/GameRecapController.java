@@ -6,10 +6,12 @@ import com.example.kickerdavinci.Models.GameRecap;
 import com.example.kickerdavinci.Models.model.NoIdGame;
 import com.example.kickerdavinci.Models.model.NoIdGameRecap;
 import com.example.kickerdavinci.Services.GameRecapService;
+import com.example.kickerdavinci.Services.GameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
 
 import java.util.List;
 
@@ -17,9 +19,11 @@ import java.util.List;
 public class GameRecapController {
 
   private final GameRecapService gameRecapService;
+  private final GameService gameService;
 
-  public GameRecapController(GameRecapService gameRecapService) {
+  public GameRecapController(GameRecapService gameRecapService, GameService gameService) {
     this.gameRecapService = gameRecapService;
+    this.gameService = gameService;
   }
 
 
@@ -43,4 +47,10 @@ public class GameRecapController {
     }
     return new ResponseEntity<>(HttpStatus.OK);
   }
+
+  @GetMapping("/gameRecap/{id}")
+    public ResponseEntity<GameRecap>getByGame(@PathVariable long id){
+    return new ResponseEntity<>(gameRecapService.getByGame(gameService.findGamebyId(id)),HttpStatus.OK);
+    }
+
 }

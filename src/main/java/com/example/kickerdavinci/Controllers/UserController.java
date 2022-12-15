@@ -80,7 +80,8 @@ public class UserController {
     if (token == null) {
       throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
     }
-    return token;
+    //return the token inside a json object
+    return "{\"token\":\"" + token + "\"}";
   }
 
   @GetMapping("/users")

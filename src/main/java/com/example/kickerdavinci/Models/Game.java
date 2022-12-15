@@ -1,5 +1,7 @@
 package com.example.kickerdavinci.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -25,6 +27,7 @@ public class Game {
   @JoinColumn(name = "CLUB_GUEST_ID", nullable = false)
   private Club guestClub;
 
+  @JsonBackReference
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "COMPETITION_ID")
   private Competition competition;

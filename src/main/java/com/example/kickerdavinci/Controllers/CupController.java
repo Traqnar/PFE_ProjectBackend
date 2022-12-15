@@ -4,6 +4,9 @@ import com.example.kickerdavinci.Models.Cup;
 import com.example.kickerdavinci.Models.model.NoIdCup;
 import com.example.kickerdavinci.Services.CupService;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.StreamSupport;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -94,5 +97,12 @@ public class CupController {
     }
     return new ResponseEntity<>(HttpStatus.OK);
 
+  }
+
+  @GetMapping("/cups/active")
+  public Iterable<Cup> getCurrentCups() {
+    Iterable<Cup> cups = cupService.getAll();// load cups from a repository or somewhere else
+    List<Cup> cupsList = StreamSupport.stream(cups.spliterator(),false).toList();
+    return cupService.getCurrentCups(cupsList);
   }
 }

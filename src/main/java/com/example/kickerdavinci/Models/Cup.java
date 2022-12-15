@@ -1,6 +1,8 @@
 package com.example.kickerdavinci.Models;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -27,6 +29,7 @@ public class Cup {
 
   @OneToMany
   private List<Club> teams;
+  @JsonBackReference
   @OneToMany(mappedBy = "cup")
   private List<Game> games;
 

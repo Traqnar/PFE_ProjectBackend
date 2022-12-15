@@ -16,4 +16,5 @@ public interface CupsRepository extends JpaRepository<Cup, Long> {
   @Transactional
   void deleteByName(String name);
 
+
 }

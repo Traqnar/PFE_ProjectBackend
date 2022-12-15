@@ -4,6 +4,9 @@ import com.example.kickerdavinci.Models.Cup;
 import com.example.kickerdavinci.Models.model.NoIdCup;
 import com.example.kickerdavinci.Repository.CupsRepository;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -33,6 +36,16 @@ public class CupService {
   public Iterable<Cup> getByStartAndEndDate(LocalDate start, LocalDate end) {
     Iterable<Cup> cups = cupsRepository.findAllByStartDateAndEndDate(start, end);
     return cups;
+  }
+
+  public List<Cup> getCurrentCups(List<Cup> cups) {
+    List<Cup> currentCups = new ArrayList<>();
+    for (Cup cup : cups) {
+      if (cup.getStartDate().isBefore(LocalDate.now()) && cup.getEndDate().isAfter(LocalDate.now())) {
+        currentCups.add(cup);
+      }
+    }
+    return currentCups;
   }
 
   public Iterable<Cup> getAll() {

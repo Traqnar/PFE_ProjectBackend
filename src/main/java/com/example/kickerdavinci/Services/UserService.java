@@ -12,6 +12,8 @@ import com.example.kickerdavinci.Repository.UsersRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+
 @Service
 public class UserService {
 
@@ -91,4 +93,8 @@ public class UserService {
   }
 
   public Iterable<User> findAllByFlag(){return usersRepository.findAllByAdminFlag(true);}
+
+  public Iterable<User> getAllSortedByRanking(){
+    return usersRepository.findAll().stream().sorted(Comparator.comparing(User::getRankingPoints).reversed()).toList();
+  }
 }

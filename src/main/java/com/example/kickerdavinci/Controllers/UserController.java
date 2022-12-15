@@ -92,4 +92,9 @@ public class UserController {
   @GetMapping("/users/admin")
   public ResponseEntity<Iterable<User>> findAllByFlag(){return new ResponseEntity<>(userService.findAllByFlag(), HttpStatus.OK);}
 
+  @GetMapping("/users/ranking")
+  public ResponseEntity<Iterable<User>> getAllSortedByRanking() {
+    return new ResponseEntity<>(userService.getAllSortedByRanking(), HttpStatus.OK);
+  }
+
 }

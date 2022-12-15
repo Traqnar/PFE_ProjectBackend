@@ -1,5 +1,5 @@
 
 ### Get all games
-GET http://localhost:8080/gameRecaps
+GET http://localhost:8080/users/ranking
 
 
